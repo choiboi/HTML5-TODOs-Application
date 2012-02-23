@@ -15,6 +15,8 @@
 		<script type="text/javascript" src="js/jquery.mobile-1.0.1.min.js"></script>
 	</head>
 	<body class="ui-mobile-viewport">
+	
+		<!-- MAIN PAGE -->
 		<div data-role="page" id="home">
 			<div data-role="header">
 				<h1>My TODO List</h1>
@@ -23,15 +25,14 @@
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#" data-role="button" data-icon="home">Exit</a></li>
-						<li><a href="#" data-role="button" data-icon="info">About</a></li>
+						<li><a href="#about" data-role="button" data-icon="info">About</a></li>
 						<li><a href="#addNote" data-role="button" data-icon="plus">Add Note</a></li>
 					</ul>
 				</div>
 			</footer>
 		</div>
 		
-		
-		
+		<!-- ADD NOTE PAGE -->
 		<div id="addNote" data-role="page">
 			<div data-role="header">
 				<h1>Add Note</h1>
@@ -41,11 +42,29 @@
 			<textarea type="text" class="textfield"></textarea>
 			
 			<footer data-role="footer" data-position="fixed">
-				
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#home" data-role="button" data-icon="check">Save</a></li>
 						<li><a href="#" data-role="button" data-icon="back" data-rel="back">Back</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+		
+		<!-- ABOUT PAGE -->
+		<div id="about" data-role="page">
+			<div data-role="header">
+				<h1>About</h1>
+			</div>
+			
+			<p>
+				FILL IN HERE
+			</p>
+			
+			<footer data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a data-role="button" data-icon="back" data-rel="back">Back to List</a></li>
 					</ul>
 				</div>
 			</footer>
