@@ -2,26 +2,53 @@
 <html>
 	<head>
 		<title>TODO List</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no" />
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no"/>
 		
 		<!--
 		<link rel="stylesheet" href="css/themes/green-theme.min.css" />
 		-->
-		<link rel="stylesheet" href="css/jquery.mobile.structure-1.0.1.min.css" />
-		<link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.0.1.min.css"/>
+		<link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css"/>
+		<link rel="stylesheet" href="css/layout.css"/>
 		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery.mobile-1.0.1.min.js"></script>
 	</head>
-	<body>
-		<div data-role="header" data-theme="a">
-			<h1>My TODO List</h1>
+	<body class="ui-mobile-viewport">
+		<div data-role="page" id="home">
+			<div data-role="header">
+				<h1>My TODO List</h1>
+			</div>
+			<footer data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#" data-role="button" data-icon="home">Exit</a></li>
+						<li><a href="#" data-role="button" data-icon="info">About</a></li>
+						<li><a href="#addNote" data-role="button" data-icon="plus">Add Note</a></li>
+					</ul>
+				</div>
+			</footer>
 		</div>
-		<div data-role="navbar" >
-			<fieldset class="ui-grid-a">
-				<div class="ui-block-a"><button type="submit" data-theme="d">Cancel</button></div>
-				<div class="ui-block-b"><button type="submit" data-theme="d">Submit</button></div>	   
-			</fieldset>
+		
+		
+		
+		<div id="addNote" data-role="page">
+			<div data-role="header">
+				<h1>Add Note</h1>
+			</div>
+			
+			<b><label class="label">Add Note:</label></b>
+			<textarea type="text" class="textfield"></textarea>
+			
+			<footer data-role="footer" data-position="fixed">
+				
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-role="button" data-icon="check">Save</a></li>
+						<li><a href="#" data-role="button" data-icon="back" data-rel="back">Back</a></li>
+					</ul>
+				</div>
+			</footer>
 		</div>
 	</body>
 </html>
