@@ -12,3 +12,9 @@
 	width: 98%;
 	display: block;
 }
+
+.notes {
+	white-space: normal;
+	margin-left: 20px;
+	margin-right: 30px;
+}
