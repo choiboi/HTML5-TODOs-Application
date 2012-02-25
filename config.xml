@@ -9,5 +9,8 @@
 	<description>
 		TODO list application using HTML5 for BlackBerry PlayBook. 
 	</description>
-	<content src="index.html"></content>
+
+	<content src="index.html"/>
+	
+	<feature id="blackberry.app"/>
 </widget>

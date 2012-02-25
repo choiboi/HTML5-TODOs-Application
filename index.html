@@ -8,11 +8,14 @@
 		<!--
 		<link rel="stylesheet" href="css/themes/green-theme.min.css" />
 		-->
+		<!-- JQUERY FILES -->
 		<link rel="stylesheet" href="css/jquery.mobile.structure-1.0.1.min.css"/>
 		<link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css"/>
-		<link rel="stylesheet" href="css/layout.css"/>
 		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery.mobile-1.0.1.min.js"></script>
+		
+		<link rel="stylesheet" href="css/layout.css"/>
+		<script type="text/javascript" src="js/applicationFunctions.js"></script>
 	</head>
 	<body class="ui-mobile-viewport">
 	
@@ -39,7 +42,7 @@
 			<footer data-role="footer" data-position="fixed">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#" data-role="button" data-icon="home">Exit</a></li>
+						<li><a href="#" onclick="closeApp()" data-role="button" data-icon="home">Exit</a></li>
 						<li><a href="#about" data-role="button" data-icon="info">About</a></li>
 						<li><a href="#addNote" data-role="button" data-icon="plus">Add Note</a></li>
 					</ul>
