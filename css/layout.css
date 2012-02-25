@@ -1,13 +1,11 @@
-.textfield {
-	display: block;
-    width: 90%;
+.textInput {
 	margin-left: auto;
+	margin-right: auto;
 }
 
 .label {
 	margin-top: 20px;
-	margin-left: auto;
-	margin-bottom: 5px;
+	margin-left: 20px;
 	font-size: 25px;
 	width: 98%;
 	display: block;

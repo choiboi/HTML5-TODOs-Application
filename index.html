@@ -26,7 +26,7 @@
 				<ul data-role="listview">
 					<!-- NOTES -->
 					<li>
-						<a href="#addNote" style="white-space:normal">
+						<a href="#editNote" style="white-space:normal">
 							<h3>Test Note</h3>
 							<p class="notes">Finish this app.Finish this app.Finish this app.Finish this app.</p>
 							<p class="ui-li-aside"><strong>Date Added</strong></p>
@@ -52,14 +52,37 @@
 				<h1>Add Note</h1>
 			</div>
 			
-			<b><label class="label">Add Note:</label></b>
-			<textarea type="text" class="textfield"></textarea>
+			<b><label class="label">Note Title:</label></b>
+			<input type="text" class="textInput"></input>
+			<b><label class="label">TODO:</label></b>
+			<textarea type="text" class="textInput"></textarea>
 			
 			<footer data-role="footer" data-position="fixed">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#home" data-role="button" data-icon="check">Save</a></li>
+						<li><a href="#home" data-role="button" data-icon="check" >Save</a></li>
 						<li><a href="#" data-role="button" data-icon="back" data-rel="back">Back</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+		
+		<!-- EDIT NOTE PAGE -->
+		<div id="editNote" data-role="page">
+			<div data-role="header">
+				<h1>Edit Note</h1>
+			</div>
+			
+			<b><label class="label">Note Title:</label></b>
+			<input type="text" class="textInput"></input>
+			<b><label class="label">TODO:</label></b>
+			<textarea type="text" class="textInput"></textarea>
+			
+			<footer data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#" data-role="button" data-icon="check" data-role="back">Save Changes</a>
+						<li><a href="#" data-role="button" data-icon="back" data-rel="back">Cancel Changes</a>
 					</ul>
 				</div>
 			</footer>
