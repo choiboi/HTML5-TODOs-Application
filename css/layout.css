@@ -1,0 +1,17 @@
+.textInput {
+	margin-left: 20px;
+}
+
+.label {
+	margin-top: 20px;
+	margin-left: 20px;
+	font-size: 25px;
+	width: 98%;
+	display: block;
+}
+
+.notes {
+	white-space: normal;
+	margin-left: 20px;
+	margin-right: 30px;
+}
