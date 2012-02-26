@@ -47,6 +47,26 @@ function editNote() {
 	localStorage.setItem(index, data);
 }
 
+// Change TODO status (either completed or not completed).
+function markCompleted() {
+	var index = getIndexValue(document.URL)
+		marked = "false";
+	var dataJSON = jQuery.parseJSON(localStorage.getItem(index));
+	
+	if (dataJSON.completed === "false") {
+		marked = "true";
+	}
+	
+	var data = JSON.stringify({
+		"title" : dataJSON.title, 
+		"note" : dataJSON.note, 
+		"dateAdded" : dataJSON.dateAdded,
+		"completed" : marked
+	});
+	
+	localStorage.setItem(index, data);
+}
+
 // Setup editNote page with the correct values.
 function updateEditNotePage(urlObj, options) {
 	var index = urlObj.hash.replace( /.*index=/, "" ),
