@@ -16,8 +16,9 @@
 		
 		<link rel="stylesheet" href="css/layout.css"/>
 		<script type="text/javascript" src="js/applicationFunctions.js"></script>
+		<script type="text/javascript" src="js/storageFunctions.js"></script>
 	</head>
-	<body class="ui-mobile-viewport">
+	<body class="ui-mobile-viewport" >
 	
 		<!-- MAIN PAGE -->
 		<div data-role="page" id="home">
@@ -27,14 +28,7 @@
 			
 			<div data-role="content">
 				<ul data-role="listview">
-					<!-- NOTES -->
-					<li>
-						<a href="#editNote" style="white-space:normal">
-							<h3>Test Note</h3>
-							<p class="notes">Finish this app.Finish this app.Finish this app.Finish this app.</p>
-							<p class="ui-li-aside"><strong>Date Added</strong></p>
-						</a>
-					</li>
+					<!-- NOTES INJECTED HERE-->
 				</ul>
 			</div>
 			
@@ -48,7 +42,7 @@
 				</div>
 			</footer>
 		</div>
-		
+
 		<!-- ADD NOTE PAGE -->
 		<div id="addNote" data-role="page">
 			<div data-role="header">
@@ -56,15 +50,15 @@
 			</div>
 			
 			<b><label class="label">Note Title:</label></b>
-			<input type="text" class="textInput"></input>
+			<input id="addNoteTitle" type="text" class="textInput"></input>
 			<b><label class="label">TODO:</label></b>
-			<textarea type="text" class="textInput"></textarea>
+			<textarea id="addNoteText" type="text" class="textInput"></textarea>
 			
 			<footer data-role="footer" data-position="fixed">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#home" data-role="button" data-icon="check">Save</a></li>
-						<li><a href="#home" data-role="button" data-icon="back">Back</a></li>
+						<li><a href="#home" onclick="addNote()" data-role="button" data-icon="check">Save</a></li>
+						<li><a href="#home" onclick="addNoteClearValues()" data-role="button" data-icon="back">Back</a></li>
 					</ul>
 				</div>
 			</footer>
@@ -77,17 +71,17 @@
 			</div>
 			
 			<b><label class="label">Note Title:</label></b>
-			<input type="text" class="textInput"></input>
+			<input id="editNoteTitle" type="text" class="textInput"></input>
 			<b><label class="label">TODO:</label></b>
-			<textarea type="text" class="textInput"></textarea>
+			<textarea id="editNoteText" type="text" class="textInput"></textarea>
 			
 			<footer data-role="footer" data-position="fixed">
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#home" data-role="button" data-icon="check">Save Changes</a></li>
 						<li><a href="#" data-role="button" data-icon="star">Mark Completed</a></li>
-						<li><a href="#" data-role="button" data-icon="delete">Delete Note</a></li>
-						<li><a href="#home" data-role="button" data-icon="back">Cancel Changes</a></li>
+						<li><a href="#home" onclick="deleteNote()" data-role="button" data-icon="delete">Delete Note</a></li>
+						<li><a href="#home" data-role="button" data-icon="back" data-rel="back">Cancel Changes</a></li>
 					</ul>
 				</div>
 			</footer>
