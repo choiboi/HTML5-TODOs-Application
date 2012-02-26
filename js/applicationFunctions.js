@@ -24,3 +24,13 @@ function addNoteClearValues() {
 	document.getElementById("addNoteTitle").value = "";
 	document.getElementById("addNoteText").value = "";
 }
+
+// Add #home tage in the URL when the application first loads.
+// This will enable it to list all the TODOs.
+function loadPage() {
+	var currentPage = document.URL;
+	
+	if (currentPage.indexOf("#home") === -1) {
+		location.href = currentPage + "#home";
+	}
+}
