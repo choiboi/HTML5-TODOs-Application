@@ -18,3 +18,9 @@ function getIndexValue(url) {
 	
 	return parseInt(index);
 }
+
+// Clear textfield value when leaving the addNote page.
+function addNoteClearValues() {
+	document.getElementById("addNoteTitle").value = "";
+	document.getElementById("addNoteText").value = "";
+}

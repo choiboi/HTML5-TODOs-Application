@@ -1,3 +1,4 @@
+// Adds note into localStorage.
 function addNote() {
 	var title = document.getElementById("addNoteTitle");
 	var note = document.getElementById("addNoteText");
@@ -10,17 +11,26 @@ function addNote() {
 		"completed" : "false"
 	});
 	
-	// Clear values in textfield.
-	title.value = "";
-	note.value = "";
+	addNoteClearValues();
+	localStorage.setItem(localStorage.length, data);
+}
+
+// Delete specified note from localStorage.
+function deleteNote() {
+	var index = getIndexValue(document.URL),
+		ind = 0;
 	
-	addToStorage(localStorage.length, data);
+	for (ind = index; ind < localStorage.length; ind++) {
+		if (ind + 1 < localStorage.length) {
+			nextData = localStorage.getItem(ind + 1);
+			localStorage.setItem(ind, nextData);
+		} else if (ind === localStorage.length - 1) {
+			localStorage.removeItem(ind);
+		}
+	}
 }
 
-function addToStorage(date, data) {
-	localStorage.setItem(date, data)
-}
-
+// Setup editNote page with the correct values.
 function editNote(urlObj, options) {
 	var index = urlObj.hash.replace( /.*index=/, "" ),
 		pageSelector = urlObj.hash.replace( /\?.*$/, "" );
@@ -70,10 +80,11 @@ $(document).bind("pagebeforechange", function(e, data) {
 			editURL = /^#editNote/;
 		if (requestURL.hash.search(homeURL) !== -1) {
 			updateList(requestURL, data.options);
+			e.preventDefault();
 		} else if (requestURL.hash.search(editURL) !== -1) {
 			editNote(requestURL, data.options);
+			e.preventDefault();
 		}
-		e.preventDefault();
 	}
 });
 

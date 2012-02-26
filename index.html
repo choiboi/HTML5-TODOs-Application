@@ -58,7 +58,7 @@
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#home" onclick="addNote()" data-role="button" data-icon="check">Save</a></li>
-						<li><a href="#home" data-role="button" data-icon="back">Back</a></li>
+						<li><a href="#home" onclick="addNoteClearValues()" data-role="button" data-icon="back">Back</a></li>
 					</ul>
 				</div>
 			</footer>
@@ -80,7 +80,7 @@
 					<ul>
 						<li><a href="#home" data-role="button" data-icon="check">Save Changes</a></li>
 						<li><a href="#" data-role="button" data-icon="star">Mark Completed</a></li>
-						<li><a href="#" data-role="button" data-icon="delete">Delete Note</a></li>
+						<li><a href="#home" onclick="deleteNote()" data-role="button" data-icon="delete">Delete Note</a></li>
 						<li><a href="#home" data-role="button" data-icon="back" data-rel="back">Cancel Changes</a></li>
 					</ul>
 				</div>
