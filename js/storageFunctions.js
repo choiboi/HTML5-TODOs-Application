@@ -30,8 +30,25 @@ function deleteNote() {
 	}
 }
 
+// Edit note title and TODOs with newly provided data.
+function editNote() {
+	var title = document.getElementById("editNoteTitle"),
+		note = document.getElementById("editNoteText"),
+		index = getIndexValue(document.URL);
+	var dataJSON = jQuery.parseJSON(localStorage.getItem(index));
+	
+	var data = JSON.stringify({
+		"title" : title.value, 
+		"note" : note.value, 
+		"dateAdded" : dataJSON.dateAdded,
+		"completed" : dataJSON.completed
+	});
+	
+	localStorage.setItem(index, data);
+}
+
 // Setup editNote page with the correct values.
-function editNote(urlObj, options) {
+function updateEditNotePage(urlObj, options) {
 	var index = urlObj.hash.replace( /.*index=/, "" ),
 		pageSelector = urlObj.hash.replace( /\?.*$/, "" );
 	
@@ -82,7 +99,7 @@ $(document).bind("pagebeforechange", function(e, data) {
 			updateList(requestURL, data.options);
 			e.preventDefault();
 		} else if (requestURL.hash.search(editURL) !== -1) {
-			editNote(requestURL, data.options);
+			updateEditNotePage(requestURL, data.options);
 			e.preventDefault();
 		}
 	}
