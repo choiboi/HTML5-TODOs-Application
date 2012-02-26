@@ -87,15 +87,25 @@ function updateEditNotePage(urlObj, options) {
 // Any page change into the home page will invoke this function.
 function updateList(urlObj, options) {
 	var index = 0,
-		list = "<ul data-role='listview'>";
+		list = "<ul data-role='listview'>",
+		completedLine = "<label class='completedLabel'>TODO COMPLETED</label>",
+		ongoingLine = "<label class='ongoingLabel'>TODO ONGOING</label>";
 	
 	for (index = 0; index < localStorage.length; index++) {
 		var data = localStorage.getItem(index);
 		var dataJSON = jQuery.parseJSON(data);
 		list += "<li><a href='#editNote?index=" + index + 
-				"' style='white-space:normal'><h3>" + dataJSON.title + 
-				"</h3><p class='notes'>" + dataJSON.note + "</p><p " +
-				"class='ui-li-aside'><strong>"+ dataJSON.dateAdded +
+				"' style='white-space:normal'><label>" + 
+				dataJSON.title + "<br/></label>";
+		
+		if (dataJSON.completed === "true") {
+			list +=  completedLine;
+		} else {
+			list +=  ongoingLine;
+		}
+		
+		list += "<p class='notes'>" + dataJSON.note + "</p>" +
+				"<p class='ui-li-aside'><strong>" + dataJSON.dateAdded +
 				"</strong></p></a></li>";
 	}
 	list += "</ul>";
