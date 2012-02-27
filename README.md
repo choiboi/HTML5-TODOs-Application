@@ -4,12 +4,15 @@ This repository contains all the source code required to create an BlackBerry We
 
 ###What is it?
 
-This is a productivity, TODO list, application for both BlackBerry PlayBook using web technologies, mainly HTLM5.
+This is a productivity, TODO list, application for BlackBerry PlayBook using web technologies, mainly HTLM5, JavaScript, and CSS.
 
 ###Features
- * Text field where the user can add their TODOs
- * Calender where the user can associate their TODOs with specific dates
+ * Create a new TODO with a title and description.
+ * Edit each TODOs
+ * Mark each TODOs completed
+ * Delete any TODOs
 
 ###Tools
  * [JQuery Mobile Framework](http://jquerymobile.com/)
+ * [JQuery](http://www.jquery.com)
  * [BlackBerry WebWorks](developer.blackberry.com/html5/)
