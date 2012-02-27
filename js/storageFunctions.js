@@ -88,20 +88,20 @@ function updateEditNotePage(urlObj, options) {
 function updateList(urlObj, options) {
 	var index = 0,
 		list = "<ul data-role='listview'>",
-		completedLine = "<label class='completedLabel'>TODO COMPLETED</label>",
-		ongoingLine = "<label class='ongoingLabel'>TODO ONGOING</label>";
+		completedLine = "<p class='completedLabel'><b>TODO COMPLETED</b></p>",
+		ongoingLine = "<p class='ongoingLabel'><b>TODO ONGOING</b></p>";
 	
 	for (index = 0; index < localStorage.length; index++) {
 		var data = localStorage.getItem(index);
 		var dataJSON = jQuery.parseJSON(data);
 		list += "<li><a href='#editNote?index=" + index + 
-				"' style='white-space:normal'><label>" + 
-				dataJSON.title + "<br/></label>";
+				"' style='white-space:normal'><p class='editNoteTitle'><b>" + 
+				dataJSON.title + "</b><br/></p>";
 		
 		if (dataJSON.completed === "true") {
-			list +=  completedLine;
+			list += completedLine;
 		} else {
-			list +=  ongoingLine;
+			list += ongoingLine;
 		}
 		
 		list += "<p class='notes'>" + dataJSON.note + "</p>" +

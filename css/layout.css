@@ -10,6 +10,12 @@
 	display: block;
 }
 
+.editNoteTitle {
+	font-size: 18px;
+	margin-top: -3px;
+	margin-bottom: 4px;
+}
+
 .completedLabel {
 	font-size: 12px;
 	color: #00FF00;
