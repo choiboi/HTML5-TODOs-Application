@@ -105,7 +105,7 @@ function updateList(urlObj, options) {
 		}
 		
 		list += "<p class='notes'>" + dataJSON.note + "</p>" +
-				"<p class='ui-li-aside'><strong>Date Added: " +
+				"<p class='ui-li-aside'><strong>Date Created: " +
 				dataJSON.dateAdded + "</strong></p></a></li>";
 	}
 	list += "</ul>";
