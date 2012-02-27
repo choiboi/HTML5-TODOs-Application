@@ -78,7 +78,7 @@ function updateEditNotePage(urlObj, options) {
 	title.value = dataJSON.title;
 	note.value = dataJSON.note;	
 	
-	$page = $( pageSelector );
+	var $page = $( pageSelector );
 	$page.page();
 	options.dataUrl = urlObj.href;
 	$.mobile.changePage( $page, options );
