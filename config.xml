@@ -11,6 +11,7 @@
 	</description>
 
 	<content src="index.html"/>
+	<icon src="images/icon.png"/>
 	
 	<feature id="blackberry.app"/>
 </widget>
