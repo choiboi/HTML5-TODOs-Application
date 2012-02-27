@@ -16,3 +16,7 @@ This is a productivity, TODO list, application for BlackBerry PlayBook using web
  * [JQuery Mobile Framework](http://jquerymobile.com/)
  * [JQuery](http://www.jquery.com)
  * [BlackBerry WebWorks](developer.blackberry.com/html5/)
+ 
+### Collaborators
+ * [James Choi](https://github.com/choiboi)
+ * [Adrian Lee](https://github.com/adrianlee)
