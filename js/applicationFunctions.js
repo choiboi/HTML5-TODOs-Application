@@ -34,3 +34,10 @@ function loadPage() {
 		location.href = currentPage + "#home";
 	}
 }
+
+// Open up the browser application to the specified link.
+function openBrowser(link) {
+	alert(link);
+	var args = blackberry.invoke.BrowserArguments(link);
+	blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
+}
