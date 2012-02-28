@@ -1,13 +1,11 @@
-.textInput {
-	margin-left: 20px;
-}
-
 .label {
-	margin-top: 20px;
-	margin-left: 20px;
-	font-size: 25px;
+	font-size: 23px;
 	width: 98%;
 	display: block;
+}
+
+#todoLabel {
+	margin-top: 15px;
 }
 
 .editNoteTitle {
