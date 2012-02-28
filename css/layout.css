@@ -1,17 +1,11 @@
-.label {
-	font-size: 23px;
-	width: 98%;
-	display: block;
-}
-
 #todoLabel {
 	margin-top: 15px;
 }
 
-.editNoteTitle {
-	font-size: 18px;
-	margin-top: -3px;
-	margin-bottom: 4px;
+.label {
+	font-size: 23px;
+	width: 98%;
+	display: block;
 }
 
 .completedLabel {
