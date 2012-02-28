@@ -95,7 +95,7 @@ function updateList(urlObj, options) {
 		var data = localStorage.getItem(index);
 		var dataJSON = jQuery.parseJSON(data);
 		list += "<li><a href='#editNote?index=" + index + 
-				"' style='white-space:normal'><p class='editNoteTitle'><b>" + 
+				"'><p class='editNoteTitle'><b>" + 
 				dataJSON.title + "</b><br/></p>";
 		
 		if (dataJSON.completed === "true") {
@@ -104,8 +104,8 @@ function updateList(urlObj, options) {
 			list += ongoingLine;
 		}
 		
-		list += "<p class='notes'>" + dataJSON.note + "</p>" +
-				"<p class='ui-li-aside'><strong>Date Created: " +
+		list += "<p class='notes' style='white-space:pre'>" + dataJSON.note + 
+				"</p><p class='ui-li-aside'><strong>Date Created: " +
 				dataJSON.dateAdded + "</strong></p></a></li>";
 	}
 	list += "</ul>";
