@@ -19,12 +19,6 @@ function getIndexValue(url) {
 	return parseInt(index);
 }
 
-// Clear textfield value when leaving the addNote page.
-function addNoteClearValues() {
-	document.getElementById("addNoteTitle").value = "";
-	document.getElementById("addNoteText").value = "";
-}
-
 // Add #home tage in the URL when the application first loads.
 // This will enable it to list all the TODOs.
 function loadPage() {

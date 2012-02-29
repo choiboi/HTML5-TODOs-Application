@@ -11,7 +11,9 @@ function addNote() {
 		"completed" : "false"
 	});
 	
-	addNoteClearValues();
+	title.value = "";
+	note.value = "";
+	
 	localStorage.setItem(localStorage.length, data);
 }
 
