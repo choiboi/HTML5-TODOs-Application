@@ -97,7 +97,7 @@ function updateList(urlObj, options) {
 		var data = localStorage.getItem(index);
 		var dataJSON = jQuery.parseJSON(data);
 		list += "<li><a href='#editNote?index=" + index + 
-				"'><p class='editNoteTitle'><b>" + 
+				"' data-transition='none'><p class='editNoteTitle'><b>" + 
 				dataJSON.title + "</b><br/></p>";
 		
 		if (dataJSON.completed === "true") {
