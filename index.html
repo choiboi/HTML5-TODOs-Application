@@ -14,28 +14,31 @@
 		<link rel="stylesheet" href="css/layout.css"/>
 		<script type="text/javascript" src="js/applicationFunctions.js"></script>
 		<script type="text/javascript" src="js/storageFunctions.js"></script>
+		<script type="text/javascript" src="js/eventListeners.js"></script>
 	</head>
 	<body class="ui-mobile-viewport" onload="loadPage()">
 	
 		<!-- MAIN PAGE -->
 		<div data-role="page" id="home">	
-			<div data-role="header">
+			<div data-role="header" id="todoListHeader">
 				<h1>My TODO List</h1>
 			</div>
 			
-			<div data-role="content">
+			<div data-role="content" id="todoList">
 				<!-- NOTES INJECTED HERE-->
 			</div>
 			
-			<footer data-role="footer" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#" onclick="closeApp()" data-icon="home">Exit</a></li>
-						<li><a href="#about" data-icon="info" data-transition="none">About</a></li>
-						<li><a href="#addNote" data-icon="plus" data-transition="none">Add Note</a></li>
-					</ul>
-				</div>
-			</footer>
+			<div id="todoListNavbar">
+				<footer data-role="footer" data-position="fixed">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#" onclick="closeApp()" data-icon="home">Exit</a></li>
+							<li><a href="#about" data-icon="info" data-transition="none">About</a></li>
+							<li><a href="#addNote" data-icon="plus" data-transition="none">Add Note</a></li>
+						</ul>
+					</div>
+				</footer>
+			</div>
 		</div>
 
 		<!-- ADD NOTE PAGE -->
