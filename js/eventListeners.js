@@ -52,11 +52,10 @@ function updateEditNotePage(urlObj, options) {
 	var index = urlObj.hash.replace( /.*index=/, "" ),
 		pageSelector = urlObj.hash.replace( /\?.*$/, "" );
 	
-	var title = document.getElementById("editNoteTitle"),
-		note = document.getElementById("editNoteText"),
-		dataJSON = jQuery.parseJSON(localStorage.getItem(index));
-	title.value = dataJSON.title;
-	note.value = dataJSON.note;	
+	var dataJSON = jQuery.parseJSON(localStorage.getItem(index));
+
+	$("#editNoteTitle").val(dataJSON.title);
+	$("#editNoteText").val(dataJSON.note);
 	
 	var $page = $( pageSelector );
 	$page.page();

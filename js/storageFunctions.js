@@ -1,12 +1,10 @@
 // Adds note into localStorage.
 function addNote() {
-	var title = document.getElementById("addNoteTitle");
-	var note = document.getElementById("addNoteText");
 	var date = dateParser();
 	
 	var data = JSON.stringify({
-		"title" : title.value, 
-		"note" : note.value, 
+		"title" : $("#addNoteTitle").val(), 
+		"note" : $("#addNoteText").val(), 
 		"dateAdded" : date,
 		"completed" : "false"
 	});
@@ -31,14 +29,12 @@ function deleteNote() {
 
 // Edit note title and TODOs with newly provided data.
 function editNote() {
-	var title = document.getElementById("editNoteTitle"),
-		note = document.getElementById("editNoteText"),
-		index = getIndexValue(document.URL);
+	var	index = getIndexValue(document.URL);
 	var dataJSON = jQuery.parseJSON(localStorage.getItem(index));
 	
 	var data = JSON.stringify({
-		"title" : title.value, 
-		"note" : note.value, 
+		"title" : $("#editNoteTitle").val(), 
+		"note" : $("#editNoteText").val(),  
 		"dateAdded" : dataJSON.dateAdded,
 		"completed" : dataJSON.completed
 	});
@@ -48,7 +44,7 @@ function editNote() {
 
 // Change TODO status (either completed or not completed).
 function markCompleted() {
-	var index = getIndexValue(document.URL)
+	var index = getIndexValue($(location).attr("href")),
 		marked = "false";
 	var dataJSON = jQuery.parseJSON(localStorage.getItem(index));
 	
