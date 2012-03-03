@@ -52,11 +52,10 @@ function updateEditNotePage(urlObj, options) {
 	var index = urlObj.hash.replace( /.*index=/, "" ),
 		pageSelector = urlObj.hash.replace( /\?.*$/, "" );
 	
-	var title = document.getElementById("editNoteTitle"),
-		note = document.getElementById("editNoteText"),
-		dataJSON = jQuery.parseJSON(localStorage.getItem(index));
-	title.value = dataJSON.title;
-	note.value = dataJSON.note;	
+	var dataJSON = jQuery.parseJSON(localStorage.getItem(index));
+
+	$("#editNoteTitle").val(dataJSON.title);
+	$("#editNoteText").val(dataJSON.note);
 	
 	var $page = $( pageSelector );
 	$page.page();
@@ -100,7 +99,7 @@ $(document).bind("pagebeforechange", function(e, data) {
 
 // Event listener which is invoked when the device changes orientation.
 $(document).bind("orientationchange", function(event) {
-	var url = window.location.href;
+	var url = $(location).attr("href");
 
 	if (selector.indexOf("#home") !== -1) {
 		updatePageLayout("#homeContent", "#homeHeader", "#homeNavbar");

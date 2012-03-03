@@ -22,10 +22,11 @@ function getIndexValue(url) {
 // Add #home tage in the URL when the application first loads.
 // This will enable it to list all the TODOs.
 function loadPage() {
-	var currentPage = document.URL;
+	var currentPage = $(location).attr("href");
 	
-	if (currentPage.indexOf("#home") === -1) {
-		location.href = currentPage + "#home";
+	if (currentPage.indexOf("#home") === -1 && 
+			currentPage.indexOf("#") === -1 ) {
+		window.location = currentPage + "#home";
 	}
 }
 
