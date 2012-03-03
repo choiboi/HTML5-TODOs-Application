@@ -13,6 +13,7 @@ function updateEditNotePage(urlObj, options) {
 	$page.page();
 	options.dataUrl = urlObj.href;
 	$.mobile.changePage( $page, options );
+	updatePageLayout("#editNoteContent", "#editNoteHeader", "#editNoteNavbar");
 }
 
 // Any page change into the home page will invoke this function.
@@ -48,13 +49,13 @@ function updateList(urlObj, options) {
 	$content.find( ":jqmData(role=listview)" ).listview();
 	options.dataUrl = urlObj.href;
 	$.mobile.changePage( $page, options );
-	updatePageLayout();
+	updatePageLayout("#homeContent", "#homeHeader", "#homeNavbar");
 }
 
 // Invoke whenever a page is loaded or device orientation changed.
-function updatePageLayout() {
-	$('#todoList').css('height', 
-		window.screen.height - $('#todoListHeader').height() - $('#todoListNavbar').height() - 32);
+function updatePageLayout(content, header, navbar) {
+	$(content).css('height', 
+		window.screen.height - $(header).height() - $(navbar).height() - 32);
 }
 
 // Any page change event will go into here.
@@ -72,6 +73,19 @@ $(document).bind("pagebeforechange", function(e, data) {
 		}
 	}
 });
+
+$(document).bind("pagechange", function(e, data) {
+	if (typeof data.toPage.selector === "string") {
+		var addNoteURL = "#addNote",
+			aboutURL = "#about",
+			selector = data.toPage.context.URL;
+		if (selector.indexOf(addNoteURL) !== -1){
+			updatePageLayout("#addNoteContent", "#addNoteHeader", "#addNoteNavbar");
+		} else if (selector.indexOf(aboutURL) !== -1) {
+			updatePageLayout("#aboutContent", "#aboutHeader", "#aboutNavbar");
+		}
+	}
+}); 
 
 // Event listener which is invoked when the device changes orientation.
 $(document).bind("orientationchange", function(event) {

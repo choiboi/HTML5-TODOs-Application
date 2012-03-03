@@ -20,15 +20,15 @@
 	
 		<!-- MAIN PAGE -->
 		<div data-role="page" id="home">	
-			<div data-role="header" id="todoListHeader">
+			<div data-role="header" id="homeHeader">
 				<h1>My TODO List</h1>
 			</div>
 			
-			<div data-role="content" id="todoList">
+			<div data-role="content" id="homeContent">
 				<!-- NOTES INJECTED HERE-->
 			</div>
 			
-			<div id="todoListNavbar">
+			<div id="homeNavbar">
 				<footer data-role="footer" data-position="fixed">
 					<div data-role="navbar">
 						<ul>
@@ -43,59 +43,63 @@
 
 		<!-- ADD NOTE PAGE -->
 		<div id="addNote" data-role="page">
-			<div data-role="header">
+			<div data-role="header" id="addNoteHeader">
 				<h1>Add Note</h1>
 			</div>
 			
-			<div data-role="content">
+			<div data-role="content" id="addNoteContent">
 				<b><label class="label">Note Title:</label></b>
 				<input id="addNoteTitle" type="text" class="textInput"></input>
 				<b><label id="todoLabel" class="label">TODO:</label></b>
 				<textarea id="addNoteText" type="text" class="textInput"></textarea>
 			</div>
 			
-			<footer data-role="footer" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#home" onclick="addNote()" data-icon="check" data-transition="none">Save</a></li>
-						<li><a href="#home" onclick="addNoteClearValues()" data-icon="back" data-transition="none">Back</a></li>
-					</ul>
-				</div>
-			</footer>
+			<div id="addNoteNavbar">
+				<footer data-role="footer" data-position="fixed">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#home" onclick="addNote()" data-icon="check" data-transition="none">Save</a></li>
+							<li><a href="#home" onclick="addNoteClearValues()" data-icon="back" data-transition="none">Back</a></li>
+						</ul>
+					</div>
+				</footer>
+			</div>
 		</div>
 		
 		<!-- EDIT NOTE PAGE -->
 		<div id="editNote" data-role="page">
-			<div data-role="header">
+			<div data-role="header" id="editNoteHeader">
 				<h1>Edit Note</h1>
 			</div>
 			
-			<div data-role="content">
+			<div data-role="content" id="editNoteContent">
 				<b><label class="label">Note Title:</label></b>
 				<input id="editNoteTitle" type="text" class="textInput"></input>
 				<b><label id="todoLabel" class="label">TODO:</label></b>
 				<textarea id="editNoteText" type="text" class="textInput"></textarea>
 			</div>
 			
-			<footer data-role="footer" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#home" onclick="editNote()" data-icon="check" data-transition="none">Save Changes</a></li>
-						<li><a href="#home" onclick="markCompleted()" data-icon="star" data-transition="none">Mark Complete/Uncomplete</a></li>
-						<li><a href="#home" onclick="deleteNote()" data-icon="delete" data-transition="none">Delete Note</a></li>
-						<li><a href="#home" data-icon="back" data-transition="none">Cancel Changes</a></li>
-					</ul>
-				</div>
-			</footer>
+			<div id="editNoteNavbar">
+				<footer data-role="footer" data-position="fixed">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#home" onclick="editNote()" data-icon="check" data-transition="none">Save Changes</a></li>
+							<li><a href="#home" onclick="markCompleted()" data-icon="star" data-transition="none">Mark Complete/Uncomplete</a></li>
+							<li><a href="#home" onclick="deleteNote()" data-icon="delete" data-transition="none">Delete Note</a></li>
+							<li><a href="#home" data-icon="back" data-transition="none">Cancel Changes</a></li>
+						</ul>
+					</div>
+				</footer>
+			</div>
 		</div>
 		
 		<!-- ABOUT PAGE -->
 		<div id="about" data-role="page">
-			<div data-role="header">
+			<div data-role="header" id="aboutHeader">
 				<h1>About</h1>
 			</div>
 			
-			<div data-role="content">
+			<div data-role="content" id="aboutContent">
 				<p>
 					This TODOs application is a simple application where a user can write down tasks at need to be completed.
 					Each tasks can either be edited, mark completed, and deleted.
@@ -120,13 +124,15 @@
 				</p>
 			</div>
 			
-			<footer data-role="footer" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#home" data-icon="back" data-transition="none">Back to List</a></li>
-					</ul>
-				</div>
-			</footer>
+			<div id="aboutNavbar">
+				<footer data-role="footer" data-position="fixed">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#home" data-icon="back" data-transition="none">Back to List</a></li>
+						</ul>
+					</div>
+				</footer>
+			</div>
 		</div>
 	</body>
 </html>
