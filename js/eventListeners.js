@@ -1,23 +1,5 @@
-// Setup editNote page with the correct values.
-function updateEditNotePage(urlObj, options) {
-	var index = urlObj.hash.replace( /.*index=/, "" ),
-		pageSelector = urlObj.hash.replace( /\?.*$/, "" );
-	
-	var title = document.getElementById("editNoteTitle"),
-		note = document.getElementById("editNoteText"),
-		dataJSON = jQuery.parseJSON(localStorage.getItem(index));
-	title.value = dataJSON.title;
-	note.value = dataJSON.note;	
-	
-	var $page = $( pageSelector );
-	$page.page();
-	options.dataUrl = urlObj.href;
-	$.mobile.changePage( $page, options );
-	updatePageLayout("#editNoteContent", "#editNoteHeader", "#editNoteNavbar");
-}
-
 // Any page change into the home page will invoke this function.
-function updateList(urlObj, options) {
+function updateHomePage(urlObj, options) {
 	var index = 0,
 		list = "<ul data-role='listview'>",
 		completedLine = "<p class='completedLabel'><b>TODO COMPLETED</b></p>",
@@ -52,6 +34,46 @@ function updateList(urlObj, options) {
 	updatePageLayout("#homeContent", "#homeHeader", "#homeNavbar");
 }
 
+// Setup addNote page with the correct values.
+function updateAddNotePage(urlObj, options) {
+	var $page = $( urlObj.hash );
+	
+	$("#addNoteTitle").val("");
+	$("#addNoteText").val("");
+	
+	$page.page();
+	options.dataUrl = urlObj.href;
+	$.mobile.changePage( $page, options);
+	updatePageLayout("#addNoteContent", "#addNoteHeader", "#addNoteNavbar");
+}
+
+// Setup editNote page with the correct values.
+function updateEditNotePage(urlObj, options) {
+	var index = urlObj.hash.replace( /.*index=/, "" ),
+		pageSelector = urlObj.hash.replace( /\?.*$/, "" );
+	
+	var title = document.getElementById("editNoteTitle"),
+		note = document.getElementById("editNoteText"),
+		dataJSON = jQuery.parseJSON(localStorage.getItem(index));
+	title.value = dataJSON.title;
+	note.value = dataJSON.note;	
+	
+	var $page = $( pageSelector );
+	$page.page();
+	options.dataUrl = urlObj.href;
+	$.mobile.changePage( $page, options );
+	updatePageLayout("#editNoteContent", "#editNoteHeader", "#editNoteNavbar");
+}
+
+// Setup about page with the correct values.
+function updateAboutPage(urlObj, options) {
+	var $page = $( urlObj.hash );
+	$page.page();
+	options.dataUrl = urlObj.href;
+	$.mobile.changePage( $page, options );
+	updatePageLayout("#aboutContent", "#aboutHeader", "#aboutNavbar");
+}
+
 // Invoke whenever a page is loaded or device orientation changed.
 function updatePageLayout(content, header, navbar) {
 	$(content).css('height', 
@@ -63,30 +85,24 @@ $(document).bind("pagebeforechange", function(e, data) {
 	if (typeof data.toPage === "string") {
 		var requestURL = $.mobile.path.parseUrl( data.toPage ),
 			homeURL = /^#home/,
-			editURL = /^#editNote/;
+			editURL = /^#editNote/,
+			addURL = /^#addNote/,
+			aboutURL = /^#about/;
 		if (requestURL.hash.search(homeURL) !== -1) {
-			updateList(requestURL, data.options);
+			updateHomePage(requestURL, data.options);
 			e.preventDefault();
 		} else if (requestURL.hash.search(editURL) !== -1) {
 			updateEditNotePage(requestURL, data.options);
 			e.preventDefault();
+		} else if (requestURL.hash.search(addURL) !== -1) {
+			updateAddNotePage(requestURL, data.options);
+			e.preventDefault();
+		} else if (requestURL.hash.search(aboutURL) !== -1) {
+			updateAboutPage(requestURL, data.options);
+			e.preventDefault();
 		}
 	}
 });
-
-$(document).bind("pagechange", function(e, data) {
-	if (typeof data.toPage.selector === "string") {
-		var addNoteURL = "#addNote",
-			requestURL = $.mobile.path.parseUrl( data.toPage )
-			aboutURL = "#about",
-			selector = data.toPage.context.URL;
-		if (selector.indexOf(addNoteURL) !== -1){
-			updatePageLayout("#addNoteContent", "#addNoteHeader", "#addNoteNavbar");
-		} else if (selector.indexOf(aboutURL) !== -1) {
-			updatePageLayout("#aboutContent", "#aboutHeader", "#aboutNavbar");
-		}
-	}
-}); 
 
 // Event listener which is invoked when the device changes orientation.
 $(document).bind("orientationchange", function(event) {
