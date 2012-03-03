@@ -48,6 +48,13 @@ function updateList(urlObj, options) {
 	$content.find( ":jqmData(role=listview)" ).listview();
 	options.dataUrl = urlObj.href;
 	$.mobile.changePage( $page, options );
+	updatePageLayout();
+}
+
+// Invoke whenever a page is loaded or device orientation changed.
+function updatePageLayout() {
+	$('#todoList').css('height', 
+		window.screen.height - $('#todoListHeader').height() - $('#todoListNavbar').height() - 32);
 }
 
 // Any page change event will go into here.
@@ -68,6 +75,5 @@ $(document).bind("pagebeforechange", function(e, data) {
 
 // Event listener which is invoked when the device changes orientation.
 $(document).bind("orientationchange", function(event) {
-	$('#todoList').css('height', 
-		window.screen.height - $('#todoListHeader').height() - $('#todoListNavbar').height() - 32);
+	updatePageLayout();
 });
