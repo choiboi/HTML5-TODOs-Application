@@ -99,7 +99,7 @@ $(document).bind("pagebeforechange", function(e, data) {
 
 // Event listener which is invoked when the device changes orientation.
 $(document).bind("orientationchange", function(event) {
-	var url = window.location.href;
+	var url = $(location).attr("href");
 
 	if (selector.indexOf("#home") !== -1) {
 		updatePageLayout("#homeContent", "#homeHeader", "#homeNavbar");
