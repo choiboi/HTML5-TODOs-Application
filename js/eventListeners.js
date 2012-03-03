@@ -89,5 +89,13 @@ $(document).bind("pagechange", function(e, data) {
 
 // Event listener which is invoked when the device changes orientation.
 $(document).bind("orientationchange", function(event) {
-	updatePageLayout();
+	var url = window.location.href,
+		addNoteURL = "#addNote",
+		aboutURL = "#about";
+		
+	if (selector.indexOf(addNoteURL) !== -1){
+		updatePageLayout("#addNoteContent", "#addNoteHeader", "#addNoteNavbar");
+	} else if (selector.indexOf(aboutURL) !== -1) {
+		updatePageLayout("#aboutContent", "#aboutHeader", "#aboutNavbar");
+	}
 });
