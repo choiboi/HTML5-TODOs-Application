@@ -77,6 +77,7 @@ $(document).bind("pagebeforechange", function(e, data) {
 $(document).bind("pagechange", function(e, data) {
 	if (typeof data.toPage.selector === "string") {
 		var addNoteURL = "#addNote",
+			requestURL = $.mobile.path.parseUrl( data.toPage )
 			aboutURL = "#about",
 			selector = data.toPage.context.URL;
 		if (selector.indexOf(addNoteURL) !== -1){
@@ -90,12 +91,18 @@ $(document).bind("pagechange", function(e, data) {
 // Event listener which is invoked when the device changes orientation.
 $(document).bind("orientationchange", function(event) {
 	var url = window.location.href,
+		homeURL = "#home",
 		addNoteURL = "#addNote",
+		editNoteURL = "#editNote",
 		aboutURL = "#about";
 		
-	if (selector.indexOf(addNoteURL) !== -1){
+	if (selector.indexOf(addNoteURL) !== -1) {
+		updatePageLayout("#homeContent", "#homeHeader", "#homeNavbar");
+	} else if (selector.indexOf(addNoteURL) !== -1) {
 		updatePageLayout("#addNoteContent", "#addNoteHeader", "#addNoteNavbar");
+	} else if (selector.indexOf(editNoteURL) !== -1) {
+		updatePageLayout("#editNoteContent", "#editNoteHeader", "#editNoteNavbar");
 	} else if (selector.indexOf(aboutURL) !== -1) {
 		updatePageLayout("#aboutContent", "#aboutHeader", "#aboutNavbar");
-	}
+	} 
 });
