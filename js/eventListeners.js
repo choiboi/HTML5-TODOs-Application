@@ -83,42 +83,32 @@ function updatePageLayout(content, header, navbar) {
 // Any page change event will go into here.
 $(document).bind("pagebeforechange", function(e, data) {
 	if (typeof data.toPage === "string") {
-		var requestURL = $.mobile.path.parseUrl( data.toPage ),
-			homeURL = /^#home/,
-			editURL = /^#editNote/,
-			addURL = /^#addNote/,
-			aboutURL = /^#about/;
-		if (requestURL.hash.search(homeURL) !== -1) {
+		var requestURL = $.mobile.path.parseUrl( data.toPage );
+
+		if (requestURL.hash.search(/^#home/) !== -1) {
 			updateHomePage(requestURL, data.options);
-			e.preventDefault();
-		} else if (requestURL.hash.search(editURL) !== -1) {
+		} else if (requestURL.hash.search(/^#editNote/) !== -1) {
 			updateEditNotePage(requestURL, data.options);
-			e.preventDefault();
-		} else if (requestURL.hash.search(addURL) !== -1) {
+		} else if (requestURL.hash.search(/^#addNote/) !== -1) {
 			updateAddNotePage(requestURL, data.options);
-			e.preventDefault();
-		} else if (requestURL.hash.search(aboutURL) !== -1) {
+		} else if (requestURL.hash.search(/^#about/) !== -1) {
 			updateAboutPage(requestURL, data.options);
-			e.preventDefault();
 		}
+		e.preventDefault();
 	}
 });
 
 // Event listener which is invoked when the device changes orientation.
 $(document).bind("orientationchange", function(event) {
-	var url = window.location.href,
-		homeURL = "#home",
-		addNoteURL = "#addNote",
-		editNoteURL = "#editNote",
-		aboutURL = "#about";
-		
-	if (selector.indexOf(addNoteURL) !== -1) {
+	var url = window.location.href;
+
+	if (selector.indexOf("#home") !== -1) {
 		updatePageLayout("#homeContent", "#homeHeader", "#homeNavbar");
-	} else if (selector.indexOf(addNoteURL) !== -1) {
+	} else if (selector.indexOf("#addNote") !== -1) {
 		updatePageLayout("#addNoteContent", "#addNoteHeader", "#addNoteNavbar");
-	} else if (selector.indexOf(editNoteURL) !== -1) {
+	} else if (selector.indexOf("#editNote") !== -1) {
 		updatePageLayout("#editNoteContent", "#editNoteHeader", "#editNoteNavbar");
-	} else if (selector.indexOf(aboutURL) !== -1) {
+	} else if (selector.indexOf("#about") !== -1) {
 		updatePageLayout("#aboutContent", "#aboutHeader", "#aboutNavbar");
 	} 
 });

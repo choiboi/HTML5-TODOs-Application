@@ -10,10 +10,7 @@ function addNote() {
 		"dateAdded" : date,
 		"completed" : "false"
 	});
-	
-	title.value = "";
-	note.value = "";
-	
+
 	localStorage.setItem(localStorage.length, data);
 }
 
