@@ -44,9 +44,6 @@ function updateAddNotePage(urlObj, options) {
 				"<b><label id='todoLabel' class='label'>TODO:</label></b>" +
 				"<textarea id='addNoteText' type='text' class='textInput'></textarea>";
 	
-	// $("#addNoteTitle").val("");
-	// $("#addNoteText").val("");
-	
 	$content.html(textfield);
 	$page.page();
 	$("input").textinput();
