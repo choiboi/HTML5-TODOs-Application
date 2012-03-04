@@ -38,8 +38,7 @@ function updateHomePage(urlObj, options) {
 function updateAddNotePage(urlObj, options) {
 	var $page = $( urlObj.hash ),
 		$content = $page.children(":jqmData(role=content)");
-	
-	textfield = "<b><label class='label'>Note Title:</label></b>" +
+	var textfield = "<b><label class='label'>Note Title:</label></b>" +
 				"<input id='addNoteTitle' type='text' class='textInput'></input>" +
 				"<b><label id='todoLabel' class='label'>TODO:</label></b>" +
 				"<textarea id='addNoteText' type='text' class='textInput'></textarea>";
@@ -57,14 +56,19 @@ function updateAddNotePage(urlObj, options) {
 function updateEditNotePage(urlObj, options) {
 	var index = urlObj.hash.replace( /.*index=/, "" ),
 		pageSelector = urlObj.hash.replace( /\?.*$/, "" );
+	var dataJSON = jQuery.parseJSON(localStorage.getItem(index)),
+		$page = $( pageSelector );
+	var textfield = "<b><label class='label'>Note Title:</label></b>" +
+					"<input id='editNoteTitle' type='text' class='textInput' value='" + 
+					dataJSON.title + "'></input><b><label id='todoLabel' class='label'>" + 
+					"TODO:</label></b><textarea id='editNoteText' class='textInput'>" +
+					dataJSON.note + "</textarea>";
 	
-	var dataJSON = jQuery.parseJSON(localStorage.getItem(index));
-
-	$("#editNoteTitle").val(dataJSON.title);
-	$("#editNoteText").val(dataJSON.note);
-	
-	var $page = $( pageSelector );
+	$content = $page.children(":jqmData(role=content)");
+	$content.html(textfield);
 	$page.page();
+	$("input").textinput();
+	$("textarea").textinput();
 	options.dataUrl = urlObj.href;
 	$.mobile.changePage( $page, options );
 	updatePageLayout("#editNoteContent", "#editNoteHeader", "#editNoteNavbar");
