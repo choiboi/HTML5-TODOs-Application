@@ -108,16 +108,16 @@ $(document).bind("pagebeforechange", function(e, data) {
 });
 
 // Event listener which is invoked when the device changes orientation.
-$(document).bind("orientationchange", function(event) {
+window.onorientationchange = function() {
 	var url = $(location).attr("href");
 
-	if (selector.indexOf("#home") !== -1) {
+	if (url.indexOf("#home") !== -1) {
 		updatePageLayout("#homeContent", "#homeHeader", "#homeNavbar");
-	} else if (selector.indexOf("#addNote") !== -1) {
+	} else if (url.indexOf("#addNote") !== -1) {
 		updatePageLayout("#addNoteContent", "#addNoteHeader", "#addNoteNavbar");
-	} else if (selector.indexOf("#editNote") !== -1) {
+	} else if (url.indexOf("#editNote") !== -1) {
 		updatePageLayout("#editNoteContent", "#editNoteHeader", "#editNoteNavbar");
-	} else if (selector.indexOf("#about") !== -1) {
+	} else if (url.indexOf("#about") !== -1) {
 		updatePageLayout("#aboutContent", "#aboutHeader", "#aboutNavbar");
 	} 
-});
+}
