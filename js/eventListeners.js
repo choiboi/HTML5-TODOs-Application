@@ -47,6 +47,7 @@ function updateAddNotePage(urlObj, options) {
 	$page.page();
 	$("input").textinput();
 	$("textarea").textinput();
+	$('#addNoteText').hycustextarea();
 	options.dataUrl = urlObj.href;
 	$.mobile.changePage( $page, options);
 	updatePageLayout("#addNoteContent", "#addNoteHeader", "#addNoteNavbar");
@@ -69,6 +70,7 @@ function updateEditNotePage(urlObj, options) {
 	$page.page();
 	$("input").textinput();
 	$("textarea").textinput();
+	$('#editNoteText').hycustextarea();
 	options.dataUrl = urlObj.href;
 	$.mobile.changePage( $page, options );
 	updatePageLayout("#editNoteContent", "#editNoteHeader", "#editNoteNavbar");
