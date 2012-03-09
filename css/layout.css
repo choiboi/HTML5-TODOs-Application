@@ -24,3 +24,12 @@
 	margin-left: auto;
 	margin-right: 30px;
 }
+
+.resizable-textarea textarea {
+	display:block;
+	margin-bottom:0pt;
+	width:99%;
+	max-width:99%;
+	min-width:99%;
+	height: 20%;
+}

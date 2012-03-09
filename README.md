@@ -15,6 +15,7 @@ This is a productivity, TODO list, application for BlackBerry PlayBook using web
 ###Tools
  * [JQuery Mobile Framework](http://jquerymobile.com/)
  * [JQuery](http://www.jquery.com)
+ * [Hycus Textare jQuery Plugin](http://blog.hycus.com/2011/05/28/auto-growing-and-re-sizable-textarea-jquery-plugin/)
  * [BlackBerry WebWorks](developer.blackberry.com/html5/)
  
 ### Collaborators
