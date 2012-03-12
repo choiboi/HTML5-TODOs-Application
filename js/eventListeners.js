@@ -9,8 +9,8 @@ function updateHomePage(urlObj, options) {
 		var data = localStorage.getItem(index);
 		var dataJSON = jQuery.parseJSON(data);
 		list += "<li><a href='#editNote?index=" + index + 
-				"' data-transition='none'><p class='editNoteTitle'><b>" + 
-				dataJSON.title + "</b><br/></p>";
+				"' data-transition='none'><p class='editNoteTitle'" +
+				"id='noteTitle'><b>" + dataJSON.title + "</b></p>";
 		
 		if (dataJSON.completed === "true") {
 			list += completedLine;
