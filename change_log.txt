@@ -7,3 +7,6 @@ Changes for TODOs Version 1.1.1.38
  * Fixed issue where long title overlaps the date created.
  * Allow textfield shrink and expand automatically
  * Minor grammar changes - "Uncompleted" --> "Incomplete."
+
+Changes for TODOs Version 1.1.-.-
+ * Added change log.
