@@ -60,7 +60,7 @@ function alertEmptyText(title, text) {
 	}
 }
 
-/* TextAreaResizer plugin */
+// TextAreaResizer plugin.
 $.fn.TextAreaResizer = function() {
 	var textarea, staticOffset,
 		iLastMousePos = 0;
