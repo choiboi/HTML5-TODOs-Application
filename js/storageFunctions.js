@@ -14,6 +14,7 @@ function addNote() {
 		});
 
 		localStorage.setItem(localStorage.length, data);
+		$.mobile.changePage("index.html#home", { transition: "none"});
 	}
 }
 
