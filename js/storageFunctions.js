@@ -1,15 +1,20 @@
 // Adds note into localStorage.
 function addNote() {
-	var date = dateParser();
-	
-	var data = JSON.stringify({
-		"title" : $("#addNoteTitle").val(), 
-		"note" : $("#addNoteText").val(), 
-		"dateAdded" : date,
-		"completed" : "false"
-	});
+	if ($("#addNoteTitle").val() === "" ||
+			$("#addNoteText").val() === "" ) {
+		alertEmptyText("#addNoteTitle", "#addNoteText");
+	} else {
+		var date = dateParser();
+		
+		var data = JSON.stringify({
+			"title" : $("#addNoteTitle").val(), 
+			"note" : $("#addNoteText").val(), 
+			"dateAdded" : date,
+			"completed" : "false"
+		});
 
-	localStorage.setItem(localStorage.length, data);
+		localStorage.setItem(localStorage.length, data);
+	}
 }
 
 // Delete specified note from localStorage.
