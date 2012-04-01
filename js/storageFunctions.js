@@ -1,15 +1,21 @@
 // Adds note into localStorage.
 function addNote() {
-	var date = dateParser();
-	
-	var data = JSON.stringify({
-		"title" : $("#addNoteTitle").val(), 
-		"note" : $("#addNoteText").val(), 
-		"dateAdded" : date,
-		"completed" : "false"
-	});
+	if ($("#addNoteTitle").val() === "" ||
+			$("#addNoteText").val() === "" ) {
+		alertEmptyText("#addNoteTitle", "#addNoteText");
+	} else {
+		var date = dateParser();
+		
+		var data = JSON.stringify({
+			"title" : $("#addNoteTitle").val(), 
+			"note" : $("#addNoteText").val(), 
+			"dateAdded" : date,
+			"completed" : "false"
+		});
 
-	localStorage.setItem(localStorage.length, data);
+		localStorage.setItem(localStorage.length, data);
+		$.mobile.changePage("/index.html#home", { transition: "none"});
+	}
 }
 
 // Delete specified note from localStorage.
@@ -29,17 +35,23 @@ function deleteNote() {
 
 // Edit note title and TODOs with newly provided data.
 function editNote() {
-	var	index = getIndexValue(document.URL);
-	var dataJSON = jQuery.parseJSON(localStorage.getItem(index));
-	
-	var data = JSON.stringify({
-		"title" : $("#editNoteTitle").val(), 
-		"note" : $("#editNoteText").val(),  
-		"dateAdded" : dataJSON.dateAdded,
-		"completed" : dataJSON.completed
-	});
-	
-	localStorage.setItem(index, data);
+	if ($("#editNoteTitle").val() === "" ||
+			$("#editNoteText").val() === "" ) {
+		alertEmptyText("#editNoteTitle", "#editNoteText");
+	} else {
+		var	index = getIndexValue(document.URL);
+		var dataJSON = jQuery.parseJSON(localStorage.getItem(index));
+		
+		var data = JSON.stringify({
+			"title" : $("#editNoteTitle").val(), 
+			"note" : $("#editNoteText").val(),  
+			"dateAdded" : dataJSON.dateAdded,
+			"completed" : dataJSON.completed
+		});
+		
+		localStorage.setItem(index, data);
+		$.mobile.changePage("/index.html#home", { transition: "none"});
+	}
 }
 
 // Change TODO status (either completed or not completed).
