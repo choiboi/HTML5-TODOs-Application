@@ -59,3 +59,30 @@ function alertEmptyText(title, text) {
 											  settings);
 	}
 }
+
+/* TextAreaResizer plugin */
+$.fn.TextAreaResizer = function() {
+	var textarea, staticOffset,
+		iLastMousePos = 0;
+
+
+	return this.each(function() {
+		textarea = $(this).addClass('processed'), staticOffset = null;
+		
+		$(this).wrap('<div class="resizable-textarea"><span></span></div>')
+			.parent().append($('<div class="grippie"></div>').bind("mousedown",{el: this} , startDrag));
+		
+		var grippie = $('div.grippie', $(this).parent())[0];
+		grippie.style.marginRight = (grippie.offsetWidth - $(this)[0].offsetWidth) +'px';
+	});
+	
+	function startDrag(e) {
+		textarea = $(e.data.el);
+		textarea.blur();
+		iLastMousePos = mousePosition(e).y;
+		staticOffset = textarea.height() - iLastMousePos;
+		textarea.css('opacity', 0.25);
+		$(document).mousemove(performDrag).mouseup(endDrag);
+		return false;
+	}
+}
