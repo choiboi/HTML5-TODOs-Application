@@ -10,3 +10,4 @@ Changes for TODOs Version 1.1.1.38
 
 Changes for TODOs Version 1.1.-.-
  * Added change log.
+ * Fixed issue where the user can save a note with empty title or TODO.
