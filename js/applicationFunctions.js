@@ -35,3 +35,27 @@ function openBrowser(link) {
 	var args = new blackberry.invoke.BrowserArguments(link);
 	blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
 }
+
+// Display alert indicating that title field or the text field is empty.
+function alertEmptyText(title, text) {
+	var INFO_TEXT = "Please enter information.",
+		settings = {size : blackberry.ui.dialog.SIZE_SMALL,
+					position : blackberry.ui.dialog.CENTER};
+	
+	if ($(title).val() === "" && $(text).val() === "") {
+		blackberry.ui.dialog.standardAskAsync("Both Title and TODO fields empty.\n" + INFO_TEXT,
+											  blackberry.ui.dialog.D_OK,
+											  function () {},
+											  settings);
+	} else if ($(title).val() === "") {
+		blackberry.ui.dialog.standardAskAsync("Title field empty.\n" + INFO_TEXT,
+											  blackberry.ui.dialog.D_OK,
+											  function () {},
+											  settings);
+	} else {
+		blackberry.ui.dialog.standardAskAsync("TODO field empty.\n" + INFO_TEXT,
+											  blackberry.ui.dialog.D_OK,
+											  function () {},
+											  settings);
+	}
+}

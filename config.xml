@@ -16,4 +16,5 @@
 	<feature id="blackberry.app"/>
 	<feature id="blackberry.invoke"/>
 	<feature id="blackberry.invoke.BrowserArguments"/>
+	<feature id="blackberry.ui.dialog"/>
 </widget>
