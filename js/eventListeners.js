@@ -110,7 +110,7 @@ $(document).bind("pagebeforechange", function(e, data) {
 });
 
 // Event listener which is invoked when the device changes orientation.
-window.onorientationchange = function() {
+window.onresize = function() {
 	var url = $(location).attr("href");
 
 	if (url.indexOf("#home") !== -1) {
