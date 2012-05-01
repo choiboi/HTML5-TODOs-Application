@@ -12,3 +12,4 @@ Changes for TODOs Version 1.1.-.-
  * Added change log.
  * Fixed issue where the user can save a note with empty title or TODO.
  * Fixed issue where textarea expands when typing on the same line.
+ * Reduced lag when screen reformats on orientation change.
