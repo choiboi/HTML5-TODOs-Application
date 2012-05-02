@@ -8,7 +8,7 @@ Changes for TODOs Version 1.1.1.38
  * Allow textfield shrink and expand automatically
  * Minor grammar changes - "Uncompleted" --> "Incomplete."
 
-Changes for TODOs Version 1.1.-.-
+Changes for TODOs Version 1.1.3.36
  * Added change log.
  * Fixed issue where the user can save a note with empty title or TODO.
  * Fixed issue where textarea expands when typing on the same line.
