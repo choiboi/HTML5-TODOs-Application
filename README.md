@@ -6,6 +6,8 @@ This repository contains all the source code required to create an BlackBerry We
 
 This is a productivity, TODO list, application for BlackBerry PlayBook using web technologies, mainly HTLM5, JavaScript, and CSS.
 
+This application can be download at [here](http://appworld.blackberry.com/webstore/content/93051/).
+
 ###Features
  * Create a new TODO with a title and description.
  * Edit each TODOs
